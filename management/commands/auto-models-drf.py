@@ -155,6 +155,13 @@ def Delete{key}(request,id):
               appUrlsFile.write(f"\nurlpatterns.append(path('Create{key}/', views.Create{key}))\n")
               appUrlsFile.write(f"\nurlpatterns.append(path('Update{key}/<int:id>/', views.Update{key}))\n")
               appUrlsFile.write(f"\nurlpatterns.append(path('Delete{key}/<int:id>/', views.Delete{key}))\n")
+            with open(f"{appName}/admin.py", 'a+') as adminFile:
+              adminFile.seek(0)
+              adminFile.write("\nfrom . import models\n")
+              for line in adminFile:
+                lineNum +=1
+                adminFile.seek(lineNum)
+              adminFile.write(f"admin.site.register(models.{key})")
         self.stdout.write(self.style.SUCCESS(f'Created {appName}/urls.py file Successfully!'))
         self.stdout.write(self.style.SUCCESS(f'Successfully created all the CRUD functions on {appName}/views.py'))
       else:
