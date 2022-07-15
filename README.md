@@ -1,5 +1,5 @@
 # Usage
-- Just Download These Files In Your Django Project On The Root Of Your Django Project
+- Just Download/Copy *"Management"* Folder In Your Django Project On The Root Of Your Django Project
 
 # auto-app-drf (projectname) (appname) 
 - Creates a more automated startapp command for django rest frameowork (urls, serializers, admin, views, models, etc..)
